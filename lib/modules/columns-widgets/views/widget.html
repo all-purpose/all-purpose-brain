@@ -1,0 +1,51 @@
+{% if data.widget.gridCols == "twoTwo" %}
+	{% set colOneCla = "col-6" %}
+	{% set colTwoCla = "col-6" %}
+{% elif data.widget.gridCols == "threeOne" %}
+	{% set colOneCla = "col-9" %}
+	{% set colTwoCla = "col-3" %}
+{% elif data.widget.gridCols == "oneThree" %}
+	{% set colOneCla = "col-3" %}
+	{% set colTwoCla = "col-9" %}
+{% elif data.widget.gridCols == "fourCols" %}
+	{% set colOneCla = "col-3" %}
+	{% set colTwoCla = "col-3" %}
+{% elif data.widgets.gridCOls == "threeCols" %}
+	{% set colOneCla = "col-3" %}
+	{% set colTwoCla = "col-3" %}
+{% endif %}
+{% set widgets = {
+	'apostrophe-rich-text': {
+		toolbar: [ 'Styles', 'Bold', 'Italic', 'Subscript', 'Superscript', 'Link', 'Unlink', 'Anchor', 'BulletedList', 'NumberedList', 'Blockquote', 'Table', 'Split'
+		],
+		styles: [
+			{ name: 'Featured Intro', element: 'h1' },
+			{ name: 'Section Heading', element: 'h2' },
+			{ name: 'Label', element: 'h3' }
+		]
+	},
+	'apostrophe-images': {
+		minSize: [400, 300]
+	}
+} %}
+<div class="columns">
+	<div class="{{colOneCla}} colWidget">
+		{{ apos.area(data.widget, 'colOne', {
+			widgets: widgets })}}
+	</div>
+	<div class="{{colTwoCla}} colWidget">
+		{{ apos.area(data.widget, 'colTwo', { widgets: widgets  })}}
+	</div>
+	{% if data.widget.gridCols == "fourCols" %}
+		<div class="col-3 colWidget">
+			{{ apos.area(data.widget, 'colThree', { widgets: widgets })}}
+		</div>
+		<div class="col-3 colWidget">
+			{{ apos.area(data.widget, 'colFour', { widgets: widgets })}}
+		</div>
+	{% elif  data.widget.gridCols == "threeCols" %}
+		<div class="col-6 colWidget">
+			{{ apos.area(data.widget, 'colThree', { widgets: widgets })}}
+		</div>
+	{% endif %}
+</div>

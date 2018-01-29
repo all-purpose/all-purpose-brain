@@ -1,0 +1,9 @@
+applications:
+- path: .
+  buildpack: sdk-for-nodejs
+  memory: 512M # Necessary for compilation
+  disk_quota: 1024M
+  instances: 1
+  name: cal-knowledgebase
+  host: cal-knowledgebase
+  timeout: 80
