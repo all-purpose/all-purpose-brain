@@ -71,10 +71,13 @@ var apos = require('apostrophe')({
       ],
       create: {
         group: {
-          title: 'employee'
+          title: 'employee',
+          permissions: ['admin']
         }
       }
     },
+
+    'apostrophe-search': {},
 
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
@@ -87,7 +90,7 @@ var apos = require('apostrophe')({
 
     // My Modules
     'columns-widgets': {},
-    'wiki': {},
-    'wiki-pages': {}
+    'article': {},
+    'article-pages': {}
   }
 });

@@ -1,8 +1,11 @@
+@import "semantic.min.css";
 @import "utils/variables.less";
 @import "utils/reset.less";
 @import "utils/typography.less";
 @import "../../../../node_modules/order.less/order.less";
 @import "utils/global.less";
+@import "includes/_header.less";
+
 
 // Delete the boilerplate CSS below when you are ready to dive in and customize your sites:
 
@@ -33,4 +36,16 @@
 
   strong { font-weight: bold; }
   em { font-style: italic; }
+}
+
+#search {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  padding: 2em;
+  margin: 0;
+  background: @bg-std;
+  border-radius: 0.2rem;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.24);
+  transform: translate(-50%, -50%);
 }

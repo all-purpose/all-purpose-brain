@@ -24,6 +24,14 @@
     We recommend you use the beforeMain block for global page components
     like headers or navigation.
   #}
+  <header id="header__article" >
+		<form id="header-search" method="GET" action="/search">
+  		<input id="header-search-bar" type="text" name="q" placeholder="{{data.piece.title}}" /><input type="submit" value="Search" />
+		</form>
+    <div id="header-user">
+      {{data.user.firstName}} {{data.user.lastName}}
+	  </div>
+	</header>
 {% endblock %}
 
 {% block main %}
