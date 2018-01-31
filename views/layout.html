@@ -26,26 +26,34 @@
     like headers or navigation.
   #}
   <header id="page-header">
-    {% if data.page._url == data.page.home %}
+    {{ apos.log('Page URL: ' + data.page._url | string + '\nHome URL: ' + data.home._url | string) }}
+    {% if data.page._url === data.home._url %}
       {% set home = true %}
     {% else %}
       {% set home = false %}
     {% endif %}
-    {% set headlines = ['Spill the beans on', 'Fill my brain with', 'Drop some knowledge bombs about'] %}
-    <h1 id="header-title{{ ' home' if home }}">
-      {% if home %}
-        {{headlines[range(0, headlines | length) | random]}}
-      {% else %}
+    {{ apos.log(home) }}
+    {% set headlines = ["Spill the beans on", "Fill my brain with", 'Drop some knowledge bombs about'] %}
+    <h1 id="header-title" class="{{ 'home' if home }}">
+      {% if home == true %}
+        CAL Knowledgebase
+      {% elif data.piece %}
         {{data.piece.title}}
+      {% elif data.page %}
+        {{data.page.title}}
       {% endif %}
     </h1>
     {# User info always floats at top #}
     <div id="header-user">
-      {{data.user.firstName}} {{data.user.lastName}} <i data-feather="user" id="header-user-icon"></i>
+      {% if data.user %}
+        {{data.user.firstName}} {{data.user.lastName}} <i data-feather="user" id="header-user-icon"></i>
+      {% else %}
+        <a class="login-link" href="/auth/google/login">Login</a>
+      {% endif %}
 	  </div>
     {# Search starts at bottom, and moves with scroll until sticky. #}
 		<form id="header-search" method="GET" action="/search">
-  		<input id="header-search-bar" type="text" name="q" placeholder="{{data.piece.title}}" />
+  		<input id="header-search-bar" type="search" data-apos-search-field value="{{ data.query.q | e }}" name="q" placeholder="Fill my brain with..." />
       <button type="submit" value="Search" id="header-search-submit">
         <i data-feather="search"></i>
       </button>
@@ -66,6 +74,7 @@
     This would be a great place to put a global footer.
   #}
   <script>
-      feather.replace()
-    </script>
+    feather.replace()
+    console.dir({{data | dump | safe }});
+  </script>
 {% endblock %}
