@@ -1,4 +1,4 @@
-{% extends data.outerLayout %}
+{% extends "layout.html" %}
 {% block title %}{{ data.page.title }}{% endblock %}
 
 {% block main %}
@@ -16,14 +16,16 @@
         {% endfor %}
       </ul>
     {% endif %}
-    <div class="ld-meta">{{ __('New Search') }}</div>
+    {# <div class="ld-meta">{{ __('New Search') }}</div>
     <input type="search" data-apos-search-field value="{{ data.query.q | e }}" name="q" />
-    <input type="submit" value="Search" />
+    <input type="submit" value="Search" /> #}
   </form>
-  {% for doc in data.docs %}
-    {{doc.url | dump}}
-    <h4>{% if doc._url %}<a href="{{ doc._url }}">{% endif %}{{ doc.title }}{% if doc._url %}</a>{% endif %}</h4>
-  {% endfor %}
+  <div id="search-body">
+    {% for doc in data.docs %}
+      <h4 class="search-result-title">{% if doc._url %}<a href="{{ doc._url }}">{% endif %}{{ doc.title }}{% if doc._url %}</a>{% endif %}</h4>
+      <p class="search-result-summary">{{doc.searchSummary | truncate}}</p>
+    {% endfor %}
+  </div>
   {% include "pager.html" %}
 {% endblock %}
 

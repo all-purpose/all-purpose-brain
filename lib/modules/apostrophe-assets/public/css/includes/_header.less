@@ -1,26 +1,96 @@
 header {
+	position: relative;
+	top: 0;
+	transform: none;
+	// When Sticky
 	padding: 1em;
 	width: 100vw;
 	max-width: 100%;
 	background: @hl-dk-AI;
+	box-shadow: @shadow;
+
+	// At start
+	// height: 20vh;
+	min-height: 12rem;
+
+	&.stuck {
+		position: fixed;
+		top: 4.25rem;
+		z-index: 5;
+		transform: translateY(-100%);
+	}
+}
+
+#header-title {
+
+	font-size: 3em;
+	width: @full-width;
+	margin: 6rem auto 4.25rem auto;
 }
 
 #header-search {
-	display: inline-block;
-	position: relative;
+	width: 50vw;
+	position: absolute;
+	bottom: 0;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translate(-50%, 50%);
+	transition: all 0.25s;
+}
+
+.stuck #header-search {
+	// position: sticky;
+	transform: translate(-50%, 0);
+	bottom: 0.75rem;
 }
 
 #header-search-bar {
 	padding: 0.25em 0.5em;
-	border-radius: 0.2em;
-	width: 50vw;
-	margin: 0 auto;
+	border-radius: 0.1em;
+	width: 100%;
+	// width: 50vw;
+	// margin: 0 auto;
 	font-weight: 700;
 	font-size: 1.25em;
+	border: none;
+	box-shadow: 
+		0 0.1rem 0.2rem rgba(0, 0, 0, 0.24), 
+		inset 0 0 0.1rem rgba(0, 0, 0, 0.75)
+}
+
+#header-search-submit {
+	position: absolute;
+	right: 0.2em;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	padding: none;
+	// width: 1em;
+	// height: 1em;
 }
 
 #header-user {
-	float: right;
+	position: fixed;
+	top: 0;
+	right: 1em;
+	padding: 1em 0;
+	// float: right;
+	height: 4.25rem;
+	line-height: 2.25rem;
+}
+
+.stuck #header-user {
+	top: unset;
+	bottom: 0;
+}
+
+#header-user-icon {
+	display: inline-block;
+	height: 2rem;
+	width: auto;
+	border-radius: 50%;
+	border: 0.1em solid white;
+	padding: 0.1em;
+	margin-left: 0.5em;
+	vertical-align: middle;
 }

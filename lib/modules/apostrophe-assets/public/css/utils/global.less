@@ -3,6 +3,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
+	font-size: 1.35em;
 }
 
 // 888b     d888 d8b          d8b                   
@@ -50,13 +51,19 @@ body {
 .apos-refreshable {
 	& > * {
 		position: relative;
-		left: 50%;
+		// left: 50%;
 		max-width: @contWidth;
-		transform: translateX(-50%);
+		// transform: translateX(-50%);
+		margin: 0 auto;
+	}
+
+	[id$='-body']  {
+		width: 35em;
+		margin: 2em auto 0;
 	}
 
 	& > header {
-		position: static;
+		// position: static;
 		left: 0;
 		max-width: 100%;
 		width: 100vw;
@@ -407,7 +414,7 @@ td, tr th {
                                                                                                             
 #article-body {
 	max-width: @textContWidth;
-	margin: 0 auto;
+	margin: 2em auto;
 	.apos-rich-text {
 	
 		// .use-baseline-grid(16px, 1.5, plex);
@@ -479,6 +486,7 @@ td, tr th {
 			margin: 1em 0;
 			overflow: auto;
 			.font-size(-1);
+			width: 100%;
 		}
 	}
 }
