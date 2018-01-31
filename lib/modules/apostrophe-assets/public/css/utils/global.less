@@ -3,6 +3,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
+	font-size: 1.35em;
 }
 
 // 888b     d888 d8b                d8b                   
@@ -50,13 +51,14 @@ body {
 .apos-refreshable {
 	& > * {
 		position: relative;
-		left: 50%;
+		// left: 50%;
 		max-width: @contWidth;
-		transform: translateX(-50%);
+		// transform: translateX(-50%);
+		margin: 0 auto;
 	}
 
 	& > header {
-		position: static;
+		// position: static;
 		left: 0;
 		max-width: 100%;
 		width: 100vw;
