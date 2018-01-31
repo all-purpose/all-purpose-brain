@@ -5,14 +5,14 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-// 888b     d888 d8b                d8b                   
-// 8888b   d8888 Y8P                Y8P                   
-// 88888b.d88888                                          
-// 888Y88888P888 888 888  888       888 88888b.  .d8888b  
-// 888 Y888P 888 888 `Y8bd8P'       888 888 "88b 88K      
-// 888  Y8P  888 888   X88K  888888 888 888  888 "Y8888b. 
-// 888   "   888 888 .d8""8b.       888 888  888      X88 
-// 888       888 888 888  888       888 888  888  88888P' 
+// 888b     d888 d8b          d8b                   
+// 8888b   d8888 Y8P          Y8P                   
+// 88888b.d88888                                    
+// 888Y88888P888 888 888  888 888 88888b.  .d8888b  
+// 888 Y888P 888 888 `Y8bd8P' 888 888 "88b 88K      
+// 888  Y8P  888 888   X88K   888 888  888 "Y8888b. 
+// 888   "   888 888 .d8""8b. 888 888  888      X88 
+// 888       888 888 888  888 888 888  888  88888P' 
 
 /*	NAVIGATION OFFSET MIXIN	*/
 .navOffsets(@n, @i: 1, @navClass) when (@i =< @n) {
@@ -349,22 +349,24 @@ table {
 
 // HEADER ROW
 thead, tr:first-of-type {
-	background-color: @bg-std;
-	border: 0.5rem solid white !important;
+	// background-color: @bg-std;
+	// border: 0.5rem solid white !important;
+	border: 1px solid grey;
 
 	th {
 		border: none !important;
 		padding: 1.5rem 0;
 		background-color: transparent !important;
-		.table-header();
+		// .table-header();
 		text-transform: uppercase;
 	}
 }
 
 // HEADER COLUMN
 table tr th {
-	border: 0.5rem solid white;
-	.nav-item-primary-active();
+	// border: 0.5rem solid white;
+	border: 1px solid grey;
+	// .nav-item-primary-active();
 }
 
 main.purple {
@@ -381,8 +383,102 @@ main.green {
 }
 
 td, tr th {
-	border: 0.5rem solid white;
+	// border: 0.5rem solid white;
+	border: 1px solid grey;
 	padding: 2.75rem 1rem 2.75rem 0.5rem;
-	color: white;
-	.nav-item-primary();
+	// color: white;
+	// .nav-item-primary();
+}
+
+
+// hide apostrophe slideshow title
+.apos-slideshow h4 {
+	display: none;
+}
+
+//        d8888         888    d8b          888                                         888                     888    
+//       d88888         888    Y8P          888                                         888                     888    
+//      d88P888         888                 888                                         888                     888    
+//     d88P 888 888d888 888888 888  .d8888b 888  .d88b.        .d8888b .d88b.  88888b.  888888 .d88b.  88888b.  888888 
+//    d88P  888 888P"   888    888 d88P"    888 d8P  Y8b      d88P"   d88""88b 888 "88b 888   d8P  Y8b 888 "88b 888    
+//   d88P   888 888     888    888 888      888 88888888      888     888  888 888  888 888   88888888 888  888 888    
+//  d8888888888 888     Y88b.  888 Y88b.    888 Y8b.          Y88b.   Y88..88P 888  888 Y88b. Y8b.     888  888 Y88b.  
+// d88P     888 888      "Y888 888  "Y8888P 888  "Y8888        "Y8888P "Y88P"  888  888  "Y888 "Y8888  888  888  "Y888 
+                                                                                                            
+#article-body {
+	max-width: @textContWidth;
+	margin: 0 auto;
+	.apos-rich-text {
+	
+		// .use-baseline-grid(16px, 1.5, plex);
+		// .use-baseline-grid(0, 1.5, 0.898);
+		// .font-baseline();
+		// .show-baselines();
+
+		p,
+		ul,
+		ol {
+			line-height: 1.5em;
+			.font-size(0);
+			word-wrap: break-word;
+		}
+	
+		h1, .head1 {
+		// 	.h1-title();
+			// .font-align(+6);
+		// 	.padding-bottom(1);
+			.font-size(5);
+		}
+	
+	
+		h2, .head2 {
+		// 	.paragraph-header();
+			.font-size(3);
+		}
+	
+		h3 {
+		// 	.eyebrow();
+			.font-size(2);
+		// 	text-transform: uppercase;
+		}
+	
+		blockquote {
+			// border-radius: 1.75rem;
+			// padding: 0.75rem 1.5rem;
+			// background-color: @hl-lt-AI;
+			// box-shadow: 0.2rem 0.2rem 0 @hl-lt-shd-AI;
+			// .pullquote();
+			padding-left: 1em;
+		}
+		strong,
+		em {
+			font-weight: 600;
+		}
+	
+		ul, ol {
+			padding: .5em 0 1em 2em;
+		}
+	
+		ul {
+			list-style: disc;
+		}
+	
+		li {
+			padding-left: 1em;
+		}
+	
+		ol {
+			list-style-type: decimal;
+		}
+	
+	
+		pre {
+			font-family: monospace;
+			background: #f4f4f4;
+			padding: 2em;
+			margin: 1em 0;
+			overflow: auto;
+			.font-size(-1);
+		}
+	}
 }
