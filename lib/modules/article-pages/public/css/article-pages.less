@@ -1,6 +1,6 @@
 #article-container {
 	position: relative;
-	width: @full-width;
+	width: @contWidth;
 	// max-width: 1024px;
 	max-width: unset;
 }
@@ -21,12 +21,24 @@
 	// .aspect-ratio(3, 4);
 	.card();
 	margin-left: 0;
+
+	h3 {
+		font-weight: 700;
+		font-size: 1.25em;
+		padding-bottom: 0.5em;
+		margin-bottom: 0.5em;
+		border-bottom: 1px solid black;
+	}
+
+	p {
+		font-size: 0.8em;
+		margin-bottom: 0;
+	}
 }
 
 .caretaker-title {
 	display: block;
-	content: "Caretaker";
-	font-family: "Plex-L";
+	// content: "Caretaker";
 	font-weight: 300;
 	font-size: 1.25rem;
 }

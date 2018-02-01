@@ -2,6 +2,13 @@
 {% block title %}{{ data.piece.title }}{% endblock %}
 {% block main %}
 	<div id="article-container">
+		<div class="caretaker">
+			<span class="caretaker-title">Article Caretaker</span>
+			<div class="caretaker-card">
+				<h3>{{data.piece.caretaker}}</h3>
+				<p>Your source for answers on this topic</p>
+			</div>
+		</div>
 		{# <div class="caretaker">
 			<span class="caretaker-title">Caretaker</span>
 			<div class="caretaker-card">
