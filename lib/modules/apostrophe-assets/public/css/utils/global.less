@@ -58,13 +58,13 @@ html {
 	// }
 
 	main {
-		padding-top: 4rem;
-		width: @full-width;
+		@media screen and (min-width: @contWidth) {
+			padding-top: 4rem;
+		}
 		margin: 0 auto;
 	}
 
 	[id$='-body']  {
-		width: 35em;
 		margin: 2em auto 0;
 	}
 
@@ -421,6 +421,7 @@ td, tr th {
 #article-body {
 	max-width: @textContWidth;
 	margin: 2em auto;
+	position: relative;
 	.apos-rich-text {
 	
 		// .use-baseline-grid(16px, 1.5, plex);
@@ -469,7 +470,7 @@ td, tr th {
 		}
 	
 		ul, ol {
-			padding: .5em 0 1em 2em;
+			padding: 0 0 1em 2em;
 		}
 	
 		ul {
