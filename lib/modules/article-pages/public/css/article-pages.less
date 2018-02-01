@@ -1,4 +1,5 @@
 #article-container {
+	position: relative;
 	width: @full-width;
 	// max-width: 1024px;
 	max-width: unset;
@@ -13,5 +14,74 @@
 		width: 27.5em;
 		float: right;
 		margin-right: -12.5em;
+	}
+}
+
+.caretaker {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.caretaker-card {
+	width: 11rem;
+	// .aspect-ratio(3, 4);
+	.card();
+	margin-left: 0;
+}
+
+.caretaker-title {
+	display: block;
+	content: "Caretaker";
+	font-family: "Plex-L";
+	font-weight: 300;
+	font-size: 1.25rem;
+}
+
+.caretaker-photo {
+	width: 7em;
+	height: 7em;
+	margin: 0 auto;
+	padding: 0;
+	border-radius: 50%;
+	border: 1px solid black;
+	margin-bottom: 1rem;
+	background-size: cover;
+	background-position: center center;
+	// For now...
+	background-image: url(https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg);
+}
+
+.caretaker-content {
+	// width: ~"calc(100% - 2rem)";
+	// border-radius: 0.1rem;
+	// padding: 0.5rem;
+	// background: white;
+}
+
+.caretaker-name {
+	display: block;
+	font-weight: bold;
+	// font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+}
+
+.caretaker-message {
+	display: block;
+	font-size: 0.8rem;
+	line-height: 1.2;
+}
+
+.caretaker-contact {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+
+	& > * {
+		background: none;
+		border: none;
+		height: 2rem;
+		width: 2rem;
 	}
 }

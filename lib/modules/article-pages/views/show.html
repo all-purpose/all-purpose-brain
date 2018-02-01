@@ -2,6 +2,24 @@
 {% block title %}{{ data.piece.title }}{% endblock %}
 {% block main %}
 	<div id="article-container">
+		{# <div class="caretaker">
+			<span class="caretaker-title">Caretaker</span>
+			<div class="caretaker-card">
+				<div class="caretaker-photo"></div>
+				<div class="caretaker-content">
+					<span class="caretaker-name">{{data.piece._caretaker.firstName}} {{data.piece._caretaker.lastName}}
+					</span>
+					<div class="caretaker-contact">
+						<button class="caretaker-slack">
+							<i data-feather="slack"></i>
+						</button>
+						<button class="caretaker-email">
+							<i data-feather="mail"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div> #}
 		<div id="article-body">{{apos.area(data.piece, 'body') }}</div>
 	</div>
 {% endblock %}

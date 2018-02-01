@@ -91,6 +91,7 @@ var apos = require('apostrophe')({
     // My Modules
     'columns-widgets': {},
     'article': {},
+    'article-widgets': {},
     'article-pages': {}
   }
 });

@@ -1,0 +1,46 @@
+<header id="page-header">
+	{{ apos.log('Page URL: ' + data.page._url | string + '\nHome URL: ' + data.home._url | string) }}
+	{% if data.page._url === data.home._url %}
+		{% set home = true %}
+	{% else %}
+		{% set home = false %}
+	{% endif %}
+	{{ apos.log(home) }}
+	{% set headlines = ["Spill the beans on...", "Fill my brain with...", 'Drop some knowledge bombs about...'] %}
+	{###########################
+	##  PAGE TITLE 
+	###########################}
+	<h1 id="header-title" class="{{ 'home' if home }}">
+		{% if home == true %}
+			{{headlines[[0, 1, 2] | random]}}
+		{% elif data.piece %}
+			{{data.piece.title}}
+		{% elif data.page %}
+			{{data.page.title}}
+		{% endif %}
+	</h1>
+	{###########################
+	##  SITE TITLE
+	###########################}
+	<h1 id="site-title">CAL Knowledgebase</h1>
+
+	{###########################
+	##  USER INFO 
+	###########################}
+	<div id="header-user">
+		{% if data.user %}
+			{{data.user.firstName}} {{data.user.lastName}} <i data-feather="user" id="header-user-icon"></i>
+		{% else %}
+			<a class="login-link" href="/auth/google/login">Login</a>
+		{% endif %}
+	</div>
+	{###########################
+	##  SEARCH BAR 
+	###########################}
+	<form id="header-search" method="GET" action="/search">
+		<input id="header-search-bar" type="search" data-apos-search-field value="{{ data.query.q | e }}" name="q" placeholder="Fill my brain with..." />
+		<button type="submit" value="Search" id="header-search-submit">
+			<i data-feather="search"></i>
+		</button>
+	</form>
+</header>

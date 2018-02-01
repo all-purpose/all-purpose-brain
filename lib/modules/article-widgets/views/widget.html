@@ -1,0 +1,12 @@
+<h2 class="art-widg-title">Newest Articles</h2>
+<hr>
+{% for piece in data.widget._pieces %}
+  <h4 class="art-widg-link">
+    {% if piece._url %}<a href="{{ piece._url }}">{% endif %}
+    {{ piece.title }}
+    {% if piece._url %}</a>{% endif %}
+  </h4>
+	{% if piece.searchSummary %}
+		<p class="art-widg-excerpt">{{piece.searchSummary | truncate(100)}}</p>
+	{% endif %}
+{% endfor %}

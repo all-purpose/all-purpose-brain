@@ -1,9 +1,9 @@
-body {
+html {
 	font-family: Plex;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
-	font-size: 1.35em;
+	font-size: 1.35rem;
 }
 
 // 888b     d888 d8b                d8b                   
@@ -48,12 +48,18 @@ body {
 // 888    888 Y8b.     888  888 Y88b 888 Y8b.     888     
 // 888    888  "Y8888  "Y888888  "Y88888  "Y8888  888     
 
-.apos-refreshable {
-	& > * {
-		position: relative;
-		// left: 50%;
-		max-width: @contWidth;
-		// transform: translateX(-50%);
+// .apos-refreshable {
+	// & > * {
+	// 	position: relative;
+	// 	// left: 50%;
+	// 	max-width: @contWidth;
+	// 	// transform: translateX(-50%);
+	// 	margin: 0 auto;
+	// }
+
+	main {
+		padding-top: 4rem;
+		width: @full-width;
 		margin: 0 auto;
 	}
 
@@ -69,7 +75,7 @@ body {
 		width: 100vw;
 		transform: none;
 	}
-}
+// }
 
 header {
 	& > * {
@@ -307,7 +313,7 @@ header {
 // 8888888888 "Y88888 888  "Y888      8888888 888  888  "Y888 
 
 .apos-area-widget-wrapper {
-	padding-top: 2rem;
+	// padding-top: 2rem;
 	// padding-bottom: 2rem;
 
 	.apos-area-widget-controls {

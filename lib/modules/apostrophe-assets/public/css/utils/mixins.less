@@ -1,0 +1,168 @@
+/***********************
+**	UTILITIES
+***********************/
+
+/*
+**	ASPECT RATIO
+**
+**	@width:			width (as part of a ratio, i.e. 16 for 16/9);
+**	@height:		height (as part of the same ratio);
+**	@children:	selector of the child in quotes, i.e. '.class'
+*/
+.aspect-ratio(@width; @height) {
+	&:before {
+		display: block;
+		content: ' ';
+		width: 100%;
+		padding-top: (@height / @width) * 100%;
+	}
+}
+
+/***********************
+**	COMPONENTS
+***********************/
+
+.card() {
+	border-radius: 0.1rem;
+	border: 1px solid rgba(155, 155, 155, 0.25);
+	box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.24);
+	background: @off-white;
+	padding: 1rem;
+	margin: 0.5rem;
+}
+
+/***********************
+**	TEXT STYLES
+***********************/
+
+.h1-title() {
+	font-family: 'Plex-L';
+	font-size: 29px;
+	font-weight: 300;
+	line-height: 1.2;
+	letter-spacing: 0.2px;
+	// text-align: left;
+	color: #000000;
+}
+
+.site-title() {
+	font-family: 'Plex';
+	font-size: 21px;
+	letter-spacing: 0.7px;
+	text-align: left;
+	color: #ffffff;
+}
+
+.pullquote() {
+	font-family: 'Plex-XLIT';
+	font-size: 21px;
+	font-weight: 100;
+	font-style: italic;
+	line-height: 1.67;
+	letter-spacing: 0.5px;
+	text-align: left;
+	color: #000000;
+}
+
+.paragraph-header() {
+	font-family: 'Plex-B';
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	text-align: left;
+	color: #000000;
+}
+
+.paragraph() {
+	font-family: 'Plex';
+	font-size: 16px;
+	line-height: 1.56;
+	letter-spacing: 0.5px;
+	text-align: left;
+	color: #000000;
+}
+
+.intro-paragraph() {
+	font-family: 'Plex';
+	font-size: 16px;
+	letter-spacing: 0.5px;
+	text-align: left;
+	color: #000000;
+}
+
+.username() {
+	font-family: 'Plex';
+	font-size: 16px;
+	line-height: 1.56;
+	letter-spacing: 0.5px;
+	text-align: left;
+	color: #ffffff;
+}
+
+.nav-item-bold() {
+	font-family: 'Plex-B';
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	color: #000000;
+}
+
+.eyebrow-bold() {
+	font-family: 'Plex-B';
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+}
+
+.nav-item-primary-active() {
+	font-family: 'Plex-B';
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	color: #ffffff;
+}
+
+.nav-item-secondary-active() {
+	font-family: 'Plex-B';
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	color: #7d7373;
+}
+
+.nav-item() {
+	font-family: 'Plex';
+	font-size: 13px;
+	text-align: left;
+	color: #000000;
+}
+
+.eyebrow() {
+	font-family: 'Plex';
+	font-size: 13px;
+	// text-align: center;
+	color: #000000;
+}
+
+.nav-item-primary() {
+	font-family: 'Plex';
+	font-size: 13px;
+	text-align: left;
+	color: #ffffff;
+}
+
+.nav-item-secondary() {
+	font-family: 'Plex';
+	font-size: 13px;
+	text-align: left;
+	color: #7d7373;
+}
+
+.table-header() {
+	font-family: 'Plex-B';
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	color: hsl(0, 0%, 100%);
+}

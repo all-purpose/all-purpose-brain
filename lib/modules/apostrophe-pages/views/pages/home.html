@@ -6,12 +6,15 @@
 {% extends "layout.html" %}
 
 {% block main %}
-  <div class="main-content">
-    <h3>Hello world!
-      {% if not data.user %}
-        <a class="login-link" href="/auth/google/login">Login</a>
-      {% endif %}
-    </h3>
-    <p>This is a very bare bones Apostrophe project. Now, get to work and make a real website!</p>
+  <div class="introduction">
+    <p>Thanks for checking out the knowledgebase. I'm still a work in progress, so some things might not work quite right or could look funny, but I'm always getting better. Keep coming back as I get a new coat of paint, more content, more features, and you might even find me to be more and more useful, we'll see.
+    </p>
+    <p>You can talk to Nick or Danny about any issues you see, or you can even add them straight to my <a href="https://caldesign.teamwork.com/#/projects/234096/tasks">teamwork project</a>.
+    </p> 
   </div>
+  {{ apos.area(data.page, 'body', {
+    widgets: {
+      'article': {}
+    }
+  }) }}
 {% endblock %}
