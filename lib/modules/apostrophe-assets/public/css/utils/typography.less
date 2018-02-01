@@ -14,38 +14,32 @@
 
 // TODO: Should we remove the webfonts for mobile?
 @font-face {
-	font-family: 'Plex-B';
+	font-family: 'Plex';
 	font-weight: 700; // This seems to make it use the "text" weight in firefox.
 	src:
 		local('IBMPlexSans-Bold'),
 		local('IBM Plex Sans Bold'),
-		// local('IBMPlexSans'),
-		// local('IBM Plex Sans'),
 		url('/type/IBMPlexSans-Bold-V01.1.woff2') format('woff2'),
 		url('/type/IBMPlexSans-Bold-V01.1.woff') format('woff');
 }
 
 @font-face {
-	font-family: 'Plex-L';
+	font-family: 'Plex';
 	font-weight: 300; // Hopefully makes it use the "light" weight.
 	src:
 		local('IBMPlexSans-Light'),
 		local('IBM Plex Sans Light'),
-		// local('IBMPlexSans'),
-		// local('IBM Plex Sans'),
 		url('/type/IBMPlexSans-Light-V01.1.woff2') format('woff2'),
 		url('/type/IBMPlexSans-Light-V01.1.woff') format('woff');
 }
 
 @font-face {
-	font-family: 'Plex-XLIT';
+	font-family: 'Plex';
 	font-weight: 100; // Hopefully makes it use the "extra light" weight.
 	font-style: italic;
 	src:
 		local('IBMPlexSans-ExtraLight-Italic'),
 		local('IBM Plex Sans ExtraLight Italic'),
-		// local('IBMPlexSans'),
-		// local('IBM Plex Sans'),
 		url('/type/IBMPlexSans-ExtraLightItalic-V01.1.woff2') format('woff2'),
 		url('/type/IBMPlexSans-ExtraLightItalic-V01.1.woff') format('woff');
 }
@@ -60,4 +54,20 @@
 		local('IBM Plex Sans'),
 		url('/type/IBMPlexSans-Regular-V01.1.woff2') format('woff2'),
 		url('/type/IBMPlexSans-Regular-V01.1.woff') format('woff');
+}
+
+
+// For order.less baseline grid setup. Not used at the moment
+@plex-font-family: 'Plex', sans-serif;
+@plex-font-variation: normal 400;
+
+// I don't know how to calculate @plex-font-offset.
+// This is just from verdana example on https://github.com/chromice/order.less
+@plex-font-offset: 0.898;
+
+// Set up global type scale
+.use-custom-scale(20px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+
+html {
+	font-size: @scale-base !important;
 }
