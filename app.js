@@ -93,6 +93,7 @@ var apos = require('apostrophe')({
     'prism-widgets': {},
     'article': {},
     'article-widgets': {},
-    'article-pages': {}
+    'article-pages': {},
+    'notice-widgets': {}
   }
 });
