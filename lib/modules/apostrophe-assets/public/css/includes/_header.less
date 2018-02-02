@@ -88,10 +88,12 @@ header {
 	position: fixed;
 	top: 0;
 	right: 1em;
-	padding: 1rem 0;
+	padding: 1rem 0 0;
 	// float: right;
-	height: 4.25rem;
+	height: 3.25rem;
 	line-height: 2.25rem;
+	background: @hl-dk-AI;
+	z-index: 1;
 }
 
 .stuck #header-user {
@@ -108,4 +110,24 @@ header {
 	padding: 0.1em;
 	margin-left: 0.5em;
 	vertical-align: middle;
+}
+
+#header-user-info {
+	cursor: pointer;
+}
+
+#header-user-menu {
+	position: absolute;
+	bottom: 0;
+	opacity: 0;
+	list-style: none;
+	transform-origin: top center;
+	transform: translateY(0);
+	transition: all 0.2s;
+	z-index: -1;
+
+	&.active {
+		opacity: 1;
+		transform: translateY(100%);
+	}
 }

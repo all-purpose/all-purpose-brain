@@ -29,7 +29,12 @@
 	###########################}
 	<div id="header-user">
 		{% if data.user %}
-			{{data.user.firstName}} {{data.user.lastName}} <i data-feather="user" id="header-user-icon"></i>
+			<div id="header-user-info">
+				{{data.user.firstName}} {{data.user.lastName}} <i data-feather="user" id="header-user-icon"></i>
+			</div>
+			<ul id="header-user-menu">
+				<li data-apos-admin-bar-item="apostrophe-login-logout"><a href="/logout">Log Out</a></li>
+			</ul>
 		{% else %}
 			<a class="login-link" href="/auth/google/login">Login</a>
 		{% endif %}

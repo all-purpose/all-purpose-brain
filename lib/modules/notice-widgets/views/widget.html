@@ -2,3 +2,7 @@
 	{{ apos.area(data.widget, 'content', {
 			widgets: widgets })}}
 </div>
+<script>
+	console.log("Widget info");
+	console.log({{data.widget | dump | safe}})
+</script>
