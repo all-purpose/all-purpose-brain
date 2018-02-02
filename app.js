@@ -92,6 +92,7 @@ var apos = require('apostrophe')({
     'columns-widgets': {},
     'article': {},
     'article-widgets': {},
-    'article-pages': {}
+    'article-pages': {},
+    'notice-widgets': {}
   }
 });
