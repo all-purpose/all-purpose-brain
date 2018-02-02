@@ -1,26 +1,29 @@
 #article-container {
 	position: relative;
-	width: @contWidth;
-	// max-width: 1024px;
 	max-width: unset;
-}
-
-#article-body {
-	width: @reading-width;
-	margin: 0 auto;
+	margin: 0 1em;
+	@media screen and (min-width: @contWidth) {
+		margin: 0;
+	}
 }
 
 .caretaker {
-	position: absolute;
-	top: 0;
-	right: 0;
+	@media screen and (min-width: @contWidth) {
+		position: absolute;
+		top: 0;
+		right: -12rem;
+	}
 }
 
 .caretaker-card {
-	width: 11rem;
-	// .aspect-ratio(3, 4);
+	max-width: @textContWidth;
 	.card();
-	margin-left: 0;
+	margin: 0 auto 2em 0;
+
+	@media screen and (min-width: @contWidth) {
+		width: 11rem;
+		margin-left: 0;
+	}
 
 	h3 {
 		font-weight: 700;
@@ -41,6 +44,8 @@
 	// content: "Caretaker";
 	font-weight: 300;
 	font-size: 1.25rem;
+	max-width: @textContWidth;
+	margin: 0 auto .5em auto;
 }
 
 .caretaker-photo {

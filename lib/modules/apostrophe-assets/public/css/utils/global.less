@@ -58,13 +58,13 @@ html {
 	// }
 
 	main {
-		padding-top: 4rem;
-		width: @full-width;
+		@media screen and (min-width: @contWidth) {
+			padding-top: 4rem;
+		}
 		margin: 0 auto;
 	}
 
 	[id$='-body']  {
-		width: 35em;
 		margin: 2em auto 0;
 	}
 
