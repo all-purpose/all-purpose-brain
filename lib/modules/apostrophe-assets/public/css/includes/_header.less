@@ -88,9 +88,9 @@ header {
 	position: fixed;
 	top: 0;
 	right: 1em;
-	padding: 1rem 0 0;
+	padding: 1rem 0;
 	// float: right;
-	height: 3.25rem;
+	height: 4.25rem;
 	line-height: 2.25rem;
 	background: @hl-dk-AI;
 	z-index: 1;
@@ -120,7 +120,13 @@ header {
 	position: absolute;
 	bottom: 0;
 	opacity: 0;
+	width: ~"calc(100% + 1rem)";
+	margin-left: -0.5rem;
+	padding: 0;
+	background: @hl-dk-AI;
+	border-radius: 0 0 0.1rem 0.1rem;
 	list-style: none;
+	background: @hl-dk-AI;
 	transform-origin: top center;
 	transform: translateY(0);
 	transition: all 0.2s;
@@ -129,5 +135,10 @@ header {
 	&.active {
 		opacity: 1;
 		transform: translateY(100%);
+	}
+
+	li {
+		border-top: 1px solid white;
+		padding: 0 0.5rem;
 	}
 }
