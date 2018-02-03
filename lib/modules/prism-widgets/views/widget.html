@@ -1,0 +1,9 @@
+{# <script>console.log( {{ data.widget | dump | safe }} )</script> #}
+{# NO indenctation here so the formatting is not affected #}
+<pre><code class="language-{{ data.widget.language }}">{{ data.widget.code }}</code></pre>
+{# {{ apos.singleton(data.widget, 'code', 'apostrophe-rich-text', {
+	toolbar: [ 'Styles' ],
+	styles: [
+		{ name: 'Code', element: 'pre' }
+	]
+}) }} #}

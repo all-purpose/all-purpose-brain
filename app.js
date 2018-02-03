@@ -90,6 +90,7 @@ var apos = require('apostrophe')({
 
     // My Modules
     'columns-widgets': {},
+    'prism-widgets': {},
     'article': {},
     'article-widgets': {},
     'article-pages': {},
