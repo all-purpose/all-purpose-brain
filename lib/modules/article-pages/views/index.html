@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
 {% block main %}
-	{# <div id="header-search">
-		<form method="GET" action="/search">
-  		<input type="text" name="q" /><input type="submit" value="Search" />
-		</form>
-	</div> #}
+	<div id="article-container">
+		<ul>
+			{% for piece in data.pieces %}
+					<li><a href="{{pieces._url}}"></li>
+			{% endfor %}
+		</ul>
+	</div>
 {% endblock %}
