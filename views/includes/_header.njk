@@ -23,6 +23,15 @@
 	##  SITE TITLE
 	###########################}
 	<h1 id="site-title"><a href="/">CAL Knowledgebase</a></h1>
+	{###########################
+	##  SEARCH BAR 
+	###########################}
+	<form id="header-search" method="GET" action="/search">
+		<input id="header-search-bar" type="search" data-apos-search-field value="{{ data.query.q | e }}" name="q" placeholder="Fill my brain with..." />
+		<button type="submit" value="Search" id="header-search-submit">
+			<i data-feather="search"></i>
+		</button>
+	</form>
 
 	{###########################
 	##  USER INFO 
@@ -39,13 +48,4 @@
 			<a class="login-link" href="/auth/google/login">Login</a>
 		{% endif %}
 	</div>
-	{###########################
-	##  SEARCH BAR 
-	###########################}
-	<form id="header-search" method="GET" action="/search">
-		<input id="header-search-bar" type="search" data-apos-search-field value="{{ data.query.q | e }}" name="q" placeholder="Fill my brain with..." />
-		<button type="submit" value="Search" id="header-search-submit">
-			<i data-feather="search"></i>
-		</button>
-	</form>
 </header>
