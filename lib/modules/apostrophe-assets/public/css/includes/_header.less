@@ -22,34 +22,40 @@ header {
 }
 
 #header-title {
-
 	font-size: 3em;
 	width: @full-width;
 	margin: 6rem auto 4.25rem auto;
 }
 
 #header-search {
-	width: 50vw;
-	position: absolute;
+	width: ~'calc(100% - 4em)';
+	max-width: 700px;
 	bottom: 0;
 	left: 50%;
-	transform: translate(-50%, 50%);
-	transition: all 0.5s ease-out;
+	transform: translate(0, 90%);
+	transition: all .2s;
+
+	// @media screen and (min-width: 500px) {
+	// 	width: ~'calc(100% - 4em)';
+	// 	margin: 0 auto;
+	// }
+	
+	@media screen and (min-width: @contWidth) {
+		width: 50vw;
+	}
+
+	.stuck & {
+		// position: sticky;
+		transform: translate(0, 0);
+		bottom: 1rem;
+	}
 }
 
-.stuck #header-search {
-	// position: sticky;
-	transform: translate(-50%, 0);
-	bottom: 0.75rem;
-}
 
 #header-search-bar {
 	padding: 0.25em 0.5em;
 	border-radius: 0.1em;
 	width: 100%;
-	// width: 50vw;
-	// margin: 0 auto;
-	font-weight: 700;
 	font-size: 1.25em;
 	border: none;
 	box-shadow: 
@@ -77,12 +83,13 @@ header {
 	line-height: 2.25rem;
 	padding: 1rem 0;
 	font-weight: 700;
+	
+	.stuck & {
+		top: unset;
+		bottom: 0;
+	}
 }
 
-.stuck #site-title {
-	top: unset;
-	bottom: 0;
-}
 
 #header-user {
 	position: fixed;
@@ -92,7 +99,7 @@ header {
 	// float: right;
 	height: 4.25rem;
 	line-height: 2.25rem;
-	background: @hl-dk-AI;
+	// background: @hl-dk-AI;
 	z-index: 1;
 }
 
@@ -129,7 +136,7 @@ header {
 	background: @hl-dk-AI;
 	transform-origin: top center;
 	transform: translateY(0);
-	transition: all 0.2s;
+	transition: all .2s;
 	z-index: -1;
 
 	&.active {

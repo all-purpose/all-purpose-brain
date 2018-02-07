@@ -1,4 +1,5 @@
-html {
+html,
+input {
 	font-family: Plex;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -48,34 +49,24 @@ html {
 // 888    888 Y8b.     888  888 Y88b 888 Y8b.     888     
 // 888    888  "Y8888  "Y888888  "Y88888  "Y8888  888     
 
-// .apos-refreshable {
-	// & > * {
-	// 	position: relative;
-	// 	// left: 50%;
-	// 	max-width: @contWidth;
-	// 	// transform: translateX(-50%);
-	// 	margin: 0 auto;
-	// }
-
-	main {
-		@media screen and (min-width: @contWidth) {
-			padding-top: 4rem;
-		}
-		margin: 0 auto;
+main {
+	@media screen and (min-width: @contWidth) {
+		padding-top: 4rem;
 	}
+	margin: 0 auto;
+}
 
-	[id$='-body']  {
-		margin: 2em auto 0;
-	}
+[id$='-body']  {
+	margin: 2em auto 0;
+}
 
-	& > header {
-		// position: static;
-		left: 0;
-		max-width: 100%;
-		width: 100vw;
-		transform: none;
-	}
-// }
+& > header {
+	// position: static;
+	left: 0;
+	max-width: 100%;
+	width: 100vw;
+	transform: none;
+}
 
 header {
 	& > * {
@@ -303,50 +294,6 @@ header {
 	}
 }
 
-// 8888888888     888 d8b 888         8888888          888    
-// 888            888 Y8P 888           888            888    
-// 888            888     888           888            888    
-// 8888888    .d88888 888 888888        888   88888b.  888888 
-// 888       d88" 888 888 888           888   888 "88b 888    
-// 888       888  888 888 888           888   888  888 888    
-// 888       Y88b 888 888 Y88b.         888   888  888 Y88b.  
-// 8888888888 "Y88888 888  "Y888      8888888 888  888  "Y888 
-
-/*.apos-area-widget-wrapper {
-	// padding-top: 2rem;
-	// padding-bottom: 2rem;
-
-	.apos-area-widget-controls {
-		top: 0;
-		transform: translateY(-100%);
-	}
-
-	.apos-area-widget-wrapper {
-		// margin-top: 0;
-		// margin-bottom: 0;
-
-		&:first-of-type {
-			padding-top: 0;
-			// margin-bottom: 0;
-		}
-
-		.apos-area-widget-controls {
-			top: auto;
-			bottom: auto;
-			left: 0;
-			transform: none;
-		}
-	}
-}
-
-.apos-area>.apos-area-widgets>.apos-area-widget-wrapper>.apos-ui .apos-area-controls, 
-.apos-area>.apos-ui .apos-area-controls {
-	top: auto;
-	padding: 16px 0;
-	transform: none;
-	position: relative;
-}*/
-
 // 88888888888       888      888                   
 //     888           888      888                   
 //     888           888      888                   
@@ -377,9 +324,7 @@ thead, tr:first-of-type {
 
 // HEADER COLUMN
 table tr th {
-	// border: 0.5rem solid white;
 	border: 1px solid grey;
-	// .nav-item-primary-active();
 }
 
 main.purple {
@@ -396,11 +341,8 @@ main.green {
 }
 
 td, tr th {
-	// border: 0.5rem solid white;
 	border: 1px solid grey;
 	padding: 2.75rem 1rem 2.75rem 0.5rem;
-	// color: white;
-	// .nav-item-primary();
 }
 
 // 8888888                                                   
