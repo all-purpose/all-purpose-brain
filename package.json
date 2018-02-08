@@ -10,6 +10,10 @@
     "type": "git",
     "url": ""
   },
+  "engines": {
+    "node": "6.10.2",
+    "npm": "5.6.0"
+  },
   "author": "P'unk Avenue",
   "license": "MIT",
   "dependencies": {
