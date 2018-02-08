@@ -1,11 +1,11 @@
 <header id="page-header">
-	{{ apos.log('Page URL: ' + data.page._url | string + '\nHome URL: ' + data.home._url | string) }}
+	{# {{ apos.log('Page URL: ' + data.page._url | string + '\nHome URL: ' + data.home._url | string) }} #}
 	{% if data.page._url === data.home._url %}
 		{% set home = true %}
 	{% else %}
 		{% set home = false %}
 	{% endif %}
-	{{ apos.log(home) }}
+	{# {{ apos.log(home) }} #}
 	{% set headlines = ["Spill the beans on...", "Fill my brain with...", 'Drop some knowledge bombs about...'] %}
 	{###########################
 	##  PAGE TITLE 

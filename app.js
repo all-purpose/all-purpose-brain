@@ -5,9 +5,10 @@ var path = require("path");
 
 // Deployment specific variables
 var cfURL = appEnv.getServiceURL("cal-knowledgebase-db");
-var mongoURL = cfURL ? cfURL : "mongodb://localhost:27017/cal-knowledgebase";
-var appURL = cfURL ? appEnv.url : "http://localhost:3000";
 process.env.ENV = cfURL ? "PROD" : "DEV";
+var mongoURL = process.env.Env === "PROD" ? cfURL : "mongodb://localhost:27017/cal-knowledgebase";
+var appURL = process.env.ENV === "PROD" ? appEnv.url : "http://localhost:3000";
+var minify = process.env.ENV === "PROD" ? true : false;
 
 var apos = require('apostrophe')({
   shortName: 'cal-knowledgebase',
@@ -30,7 +31,7 @@ var apos = require('apostrophe')({
 
     'apostrophe-assets': {
       // Will minify css and js on production server.
-      minify: (process.env.ENV === 'PROD')
+      // minify: minify
     },
     'apostrophe-attachments': {
       uploadfs: {
@@ -99,3 +100,4 @@ var apos = require('apostrophe')({
     'learning-reflection-pages': {}
   }
 });
+console.log("Environment: " + process.env.ENV + "\nAssets Minied: " + minify);
