@@ -17,9 +17,11 @@ var mongoURL = process.env.Env === "PROD"
 var minify = process.env.ENV === "PROD"
   ? true
   : false;
-process.env.ORIGIN = appEnv.isLocal
-  ? "http://localhost:3000"
-  : appEnv.url;
+process.env.ORIGIN = !appEnv.isLocal // Initial Conditional
+  ? appEnv.url
+  : process.env.ORIGIN // Secondary Conditional
+    ? process.env.ORIGIN
+    : "http://localhost:3000";;
 
 /*  ===== CORS  ===== */
 /*  Uncomment if there's asset issues */
