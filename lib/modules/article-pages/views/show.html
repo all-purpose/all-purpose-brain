@@ -1,26 +1,7 @@
-{% extends "layout.html" %}
+{% extends "apostrophe-templates:layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
 {% block main %}
 	<div id="article-container">
-		
-		{# <div class="caretaker">
-			<span class="caretaker-title">Caretaker</span>
-			<div class="caretaker-card">
-				<div class="caretaker-photo"></div>
-				<div class="caretaker-content">
-					<span class="caretaker-name">{{data.piece._caretaker.firstName}} {{data.piece._caretaker.lastName}}
-					</span>
-					<div class="caretaker-contact">
-						<button class="caretaker-slack">
-							<i data-feather="slack"></i>
-						</button>
-						<button class="caretaker-email">
-							<i data-feather="mail"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div> #}
 		<div id="article-body">
 			<div class="caretaker">
 				<span class="caretaker-title">Article Caretaker</span>
@@ -29,6 +10,22 @@
 					<p>Your source for answers on this topic</p>
 				</div>
 			</div>
+			{# {% if data.piece.contArr %}
+				<div class="contents">
+					<span class="contents-title">Contents</span>
+					<ul class="contents-card">
+						{% for heading in data.piece.contArr %}
+							<li>{{heading | safe}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %} #}
+			{% if data.piece['_collection'] %}
+				<div id="article-sidebar--left">
+					{# COLLECTION CONTENTS #}
+					{% include "article-collections-widgets:widget.html" %}
+				</div>
+			{% endif %}
 			{{apos.area(data.piece, 'body') }}
 		</div>
 	</div>

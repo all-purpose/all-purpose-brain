@@ -4,7 +4,7 @@
 	<div id="article-container">
 		<ul>
 			{% for piece in data.pieces %}
-					<li><a href="{{pieces._url}}"></li>
+					<li><a href="{{piece._url}}">{{piece.title}}</li>
 			{% endfor %}
 		</ul>
 	</div>

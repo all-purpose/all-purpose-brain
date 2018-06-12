@@ -2,47 +2,44 @@ require("dotenv").config();
 var cfenv = require("cfenv");
 var appEnv = cfenv.getAppEnv();
 var path = require("path");
+var async = require("async");
+var _ = require("lodash");
 
 // Deployment specific variables
-var cfURL = appEnv.getServiceURL("cal-knowledgebase-db");
-process.env.ENV = cfURL ? "PROD" : "DEV";
-var mongoURL = process.env.Env === "PROD" ? cfURL : "mongodb://localhost:27017/cal-knowledgebase";
-var appURL = process.env.ENV === "PROD" ? appEnv.url : "http://localhost:3000";
-var minify = process.env.ENV === "PROD" ? true : false;
+var dbName = process.env.DBNAME || "cal-knowledgebase-db";;
+var cfURL = appEnv.getServiceURL(dbName);
+process.env.ENV = appEnv.isLocal
+  ? "DEV"
+  : "PROD";
+var mongoURL = process.env.Env === "PROD"
+  ? cfURL
+  : process.env.APOS_MONGODB_URI;
+var minify = process.env.ENV === "PROD"
+  ? true
+  : false;
+process.env.ORIGIN = appEnv.isLocal
+  ? "http://localhost:3000"
+  : appEnv.url;
+
+/*  ===== CORS  ===== */
+/*  Uncomment if there's asset issues */
+var cors = require("./cors.js");
+cors.configCORS();
 
 var apos = require('apostrophe')({
   shortName: 'cal-knowledgebase',
   title: 'Cal Knowledgebase',
-  baseUrl: appURL,
-
-  // See lib/modules for basic project-level configuration of our modules
-  // responsible for serving static assets, managing page templates and
-  // configuring user acounts.
-
+  baseUrl: process.env.ORIGIN,
   modules: {
-
-    // Apostrophe module configuration
-
-    // Note: most configuration occurs in the respective
-    // modules' directories. See lib/apostrophe-assets/index.js for an example.
-    
-    // However any modules that are not present by default in Apostrophe must at
-    // least have a minimal configuration here: `moduleName: {}`
-
-    'apostrophe-assets': {
-      // Will minify css and js on production server.
-      // minify: minify
-    },
+    'apostrophe-assets': {},
     'apostrophe-attachments': {
       uploadfs: {
         backend: 's3',
-        origins: ['localhost', "https://cal-knokwledgebase.w3bmix.ibm.com/"],
         secret: process.env.APOS_S3_SECRET,
         key: process.env.APOS_S3_KEY,
         bucket: process.env.APOS_S3_BUCKET,
         endpoint: process.env.APOS_S3_ENDPOINT,
         https: true,
-        cors: true
       }
     },
     'apostrophe-db': {
@@ -95,9 +92,21 @@ var apos = require('apostrophe')({
     'article': {},
     'article-widgets': {},
     'article-pages': {},
+    'article-collections': {},
+    'article-collections-pages': {},
+    'article-collections-widgets': {},
     'notice-widgets': {},
-    'learning-reflection': {},
-    'learning-reflection-pages': {}
+    'piece-contents-widgets': {},
   }
 });
-console.log("Environment: " + process.env.ENV + "\nAssets Minied: " + minify);
+
+console.log(
+  "Environment:",
+  process.env.ENV,
+  "| Mongo URL:",
+  mongoURL,
+  "| Backend:",
+  apos.options.modules["apostrophe-attachments"].uploadfs.backend,
+  "| Base URL:",
+  process.env.ORIGIN
+);

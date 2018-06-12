@@ -1,0 +1,45 @@
+{
+	// Use IntelliSense to learn about possible Node.js debug attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "nodemon",
+			"envFile": "${workspaceRoot}/.env",
+			"protocol": "inspector",
+			"runtimeExecutable": "nodemon",
+			"program": "${workspaceRoot}/app.js",
+			"restart": true,
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			// "showAsyncStacks": true,
+			// "trace": "all",
+			// "trace": "verbose",
+			// "trace": "error",
+			"skipFiles": [
+				"${workspaceRoot}/node_modules/"
+			]
+			// "cwd": "${workspaceRoot}"
+			// "sourceMaps": true,
+			// "smartStep": true,
+			// "port": 18995
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Cal Knowledgebase default",
+			"program": "${workspaceRoot}/app.js",
+			"envFile": "${workspaceRoot}/.env",
+			"protocol": "inspector",
+			"showAsyncStacks": true,
+			"skipFiles": [
+				"${workspaceRoot}/node_modules"
+			],
+			"sourceMaps": true,
+			"smartStep": true
+		}
+	]
+}

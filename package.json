@@ -4,7 +4,24 @@
   "description": "Minimal cal-knowledgebase",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "debug-nodemon": "nodemon -e js,json,html --inspect app.js",
+    "nodemon": "nodemon -e js,json,html app.js",
+    "debug": "node --inspect app.js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules",
+      "locales",
+      "/public"
+    ],
+    "watch": [
+      "lib/",
+      "views/",
+      "/*.*"
+    ],
+    "verbose": true,
+    "script": "app.js"
   },
   "repository": {
     "type": "git",

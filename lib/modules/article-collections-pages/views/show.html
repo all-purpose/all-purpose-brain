@@ -1,0 +1,19 @@
+{% extends "apostrophe-templates:layout.html" %}
+{% block title %}{{ data.piece.title }}{% endblock %}
+{% block main %}
+	<div class="layout-container">
+    <section class="layout-sidebar__left">
+			<h2 class="widget-title">{{data.piece.title}} Articles</h2>
+			<ul>
+				{% for piece in data.piece['_articles'] %}
+					<li><a href="{{piece._url}}">{{piece.title}}</a></li>
+				{% endfor %}
+			</ul>
+		</section>
+		<section class="layout-content">
+			{{apos.area(data.piece, 'collectionIntro') }}
+		</section>
+		<section class="layout-sidebar__right">
+		</section>
+	</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% macro collectionList(listData, title) %}
+	{% if title %}<h2 class="widget-title">{{title}}</h2>{% endif %}
+	<ul class="collectionContents-list">
+		{% for piece in listData %}
+			<li><a href="{{piece._url}}">{{piece.title}}</a></li>
+		{% endfor %}
+	</ul>
+{% endmacro %}
+
+
+{% if data.piece['_collection'] %}
+	{# ARTICLE #}
+	{# {% set collection = data.piece['_collection'] if data.piece['_collection'] else data.piece %} #}
+	{{apos.log("Article (has _collection)")}}
+	{{apos.log(data.piece['_collection'])}}
+	{{collectionList(data.piece['_collection'], data.piece.title)}}
+	{# <div class="collectionContents">
+		<h3>{{collection.title}} Contents</h3>
+		<ul class="collectionContents-list">
+			{% for article in collection['_articles'] %}
+				{% set current = ' current' if data.page._url == data.piece._url else '' %}
+				<li><a class="link-collection{{current}}" href="{{article._url}}">{{article.title}}</a></li>
+			{% endfor %}
+		</ul>
+		</div> #}
+{% elif data.piece['_articles'] %}
+	{# COLLECTION #}
+	{{apos.log("Collection (has _articles)")}}
+	{{apos.log(data.piece['_articles'])}}
+	{{collectionList(data.piece['_articles'])}}
+{% elif data.widget and data.widget.contents == "allCollections" %}
+	{# HOMEPAGE #}
+	{{collectionList(data.widget._pieces, "Browse Collections")}}
+{% elif data.piece %}
+	{{apos.log(data.piece)}}
+{% endif %}

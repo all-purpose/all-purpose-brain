@@ -16,7 +16,15 @@
 	}
 }
 
-.caretaker-card {
+.contents, #article-sidebar--left {
+	@media screen and (min-width: @contWidth) {
+		position: absolute;
+		top: 0;
+		left: -14rem;
+	}
+}
+
+.caretaker-card, .contents-card {
 	max-width: @textContWidth;
 	.card();
 	margin: 0 auto 2em 0;
@@ -40,7 +48,7 @@
 	}
 }
 
-.caretaker-title {
+.caretaker-title, .contents-title {
 	display: block;
 	// content: "Caretaker";
 	font-weight: 300;
@@ -94,5 +102,14 @@
 		border: none;
 		height: 2rem;
 		width: 2rem;
+	}
+}
+
+.contents-card li {
+	margin-bottom: 1rem;
+
+	a {
+		font-size: 0.8rem;
+		text-decoration: none;
 	}
 }
