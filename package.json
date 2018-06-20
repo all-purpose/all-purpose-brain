@@ -7,7 +7,9 @@
     "start": "node app.js",
     "debug-nodemon": "nodemon -e js,json,html --inspect app.js",
     "nodemon": "nodemon -e js,json,html app.js",
-    "debug": "node --inspect app.js"
+    "debug": "node --inspect app.js",
+    "comp-dev": "APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle",
+    "comp-prod": "APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs"
   },
   "nodemonConfig": {
     "ignore": [

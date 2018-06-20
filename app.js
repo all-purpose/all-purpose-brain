@@ -89,6 +89,7 @@ var apos = require('apostrophe')({
     'apostrophe-users': {},
 
     // My Modules
+    'theme-knowledgebase': {},// Styling needs to come first.
     'columns-widgets': {},
     'prism-widgets': {},
     'article': {},
@@ -98,8 +99,7 @@ var apos = require('apostrophe')({
     'article-collections-pages': {},
     'article-collections-widgets': {},
     'notice-widgets': {},
-    'piece-contents-widgets': {},
-    'theme-knowledgebase': {}
+    'piece-contents-widgets': {}
   }
 });
 
