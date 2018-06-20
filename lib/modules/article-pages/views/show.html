@@ -1,15 +1,17 @@
 {% extends "apostrophe-templates:layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
 {% block main %}
-	<div id="article-container">
-		<div id="article-body">
-			<div class="caretaker">
-				<span class="caretaker-title">Article Caretaker</span>
-				<div class="caretaker-card">
-					<h3>{{data.piece.caretaker}}</h3>
-					<p>Your source for answers on this topic</p>
+	{# <div id="article-container"> #}
+	<div class="layout-container">
+		{% if data.piece['_collection'] %}
+				{# <div id="article-sidebar--left"> #}
+				<div class="layout-sidebar__left">
+					{# COLLECTION CONTENTS #}
+					{% include "article-collections-widgets:widget.html" %}
 				</div>
-			</div>
+			{% endif %}
+		{# <div id="article-body"> #}
+		<div class="layout-content">
 			{# {% if data.piece.contArr %}
 				<div class="contents">
 					<span class="contents-title">Contents</span>
@@ -20,13 +22,16 @@
 					</ul>
 				</div>
 			{% endif %} #}
-			{% if data.piece['_collection'] %}
-				<div id="article-sidebar--left">
-					{# COLLECTION CONTENTS #}
-					{% include "article-collections-widgets:widget.html" %}
-				</div>
-			{% endif %}
+			
 			{{apos.area(data.piece, 'body') }}
 		</div>
+		{# <div class="caretaker"> #}
+		<div class="layout-sidebar__right">
+				<span class="caretaker-title">Article Caretaker</span>
+				<div class="caretaker-card">
+					<h3>{{data.piece.caretaker}}</h3>
+					<p>Your source for answers on this topic</p>
+				</div>
+			</div>
 	</div>
 {% endblock %}

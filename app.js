@@ -99,6 +99,7 @@ var apos = require('apostrophe')({
     'article-collections-widgets': {},
     'notice-widgets': {},
     'piece-contents-widgets': {},
+    'theme-knowledgebase': {}
   }
 });
 

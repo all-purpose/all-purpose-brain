@@ -1,7 +1,7 @@
 applications:
 - path: .
   buildpack: sdk-for-nodejs
-  memory: 256M # Should work now that the compilation is separate.
+  memory: 512M # Should work now that the compilation is separate.
   disk_quota: 1024M
   instances: 1
   name: cal-knowledgebase
